@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Worksheet Interaktif | Niche | Pillars | Design Thinking</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f4f8ff; --ink:#0b192f; --muted:#4b647e; --line:#cfe0ff; --brand:#1d4ed8; --brand-2:#60a5fa; --card:#ffffff;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto;background:var(--bg);color:var(--ink)}
+    .wrap{max-width:880px;margin:0 auto;padding:20px 18px}
+
+    /* Header / toolbar */
+    .hero{padding:18px 16px 8px}
+    .hero h1{margin:0;font-size:24px;letter-spacing:.2px}
+    .hero p{margin:6px 0 0;color:var(--muted)}
+    .toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:flex-end;margin:10px 0 14px}
+    .btn{appearance:none;border:1px solid var(--line);background:var(--brand);color:#fff;padding:10px 14px;border-radius:12px;cursor:pointer;font-weight:700;box-shadow:0 6px 18px rgba(29,78,216,.18)}
+    .btn.secondary{background:#fff;color:var(--ink)}
+    .btn.ghost{background:transparent;color:var(--ink)}
+    .btn:active{transform:translateY(1px)}
+
+    /* Single column card */
+    section{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin:14px 0;box-shadow:0 14px 30px rgba(59,130,246,.12)}
+    section h2{font-size:18px;margin:0 0 10px}
+    .desc{color:var(--muted);font-size:14px;margin:0 0 12px}
+
+    /* Inputs */
+    label{display:block;font-size:13px;color:var(--muted);margin:8px 0 6px}
+    input[type="text"], textarea{width:100%;background:#fff;border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;font:inherit;color:var(--ink);box-shadow:0 4px 10px rgba(59,130,246,.06)}
+    textarea{min-height:88px;resize:vertical}
+
+    /* Preview */
+    .preview{background:#fff;border:1px solid var(--line);border-radius:16px;margin-top:16px;box-shadow:0 10px 26px rgba(29,78,216,.12)}
+    .preview .hd{display:flex;align-items:center;justify-content:space-between;padding:16px;border-bottom:1px solid var(--line)}
+    .preview .hd .t{font-weight:800}
+    .preview .bd{padding:16px}
+    .kv{display:grid;grid-template-columns:170px 1fr;gap:8px 16px}
+    .k{color:var(--muted)}
+    .list{margin:6px 0 0;padding-left:18px}
+
+    /* Print A4 */
+    @page{size:A4;margin:14mm}
+    @media print{
+      .toolbar,.hero{display:none}
+      body{background:#fff}
+      section,.preview{break-inside:avoid}
+      .wrap{padding:0}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="hero">
+      <h1>Worksheet Interaktif – Niche • Content Pillars • Design Thinking</h1>
+      <p>Isi langsung di bawah (satu kolom). Ada contoh di setiap bagian. Simpan lokal atau cetak sebagai PDF.</p>
+    </div>
+
+    <div class="toolbar">
+      <button class="btn secondary" id="saveBtn">💾 Simpan (Local)</button>
+      <button class="btn ghost" id="clearBtn">🧹 Bersihkan</button>
+      <button class="btn" id="printBtn">🖨️ Pratinjau & Cetak</button>
+    </div>
+
+    <!-- 1. Niche Statement -->
+    <section>
+      <h2>1) Niche Statement</h2>
+      <p class="desc">Template kalimat:<br>“Saya membantu <b>[SIAPA]</b> mencapai <b>[TUJUAN]</b> dengan konten <b>[FORMAT/TOPIK]</b> bergaya <b>[GAYA]</b>.”</p>
+      <p class="desc"><b>Contoh:</b> “Saya membantu <i>kreator pemula</i> memahami <i>hukum & etika digital</i> lewat <i>carousel IG & Reels</i> yang <i>ringkas & relatable</i>.”</p>
+      <label for="niche">Tulis niche statement Anda</label>
+      <textarea id="niche" placeholder="Tulis niche statement di sini..."></textarea>
+    </section>
+
+    <!-- 2. Content Pillars -->
+    <section>
+      <h2>2) Content Pillars (3–5)</h2>
+      <p class="desc">Tentukan 3–5 pilar topik utama yang konsisten.</p>
+      <p class="desc"><b>Contoh:</b> 
+        <br><b>Pilar 1 – Hukum Kreator</b> (hak cipta, kontrak brand, privasi)
+        <br><b>Pilar 2 – Etika & Mindset Digital</b> (plagiarisme, disclosure iklan, personal branding)
+        <br><b>Pilar 3 – Praktik Konten</b> (script caption, CTA, struktur carousel, workflow)
+      </p>
+      <label for="pillar1">Pilar 1</label>
+      <input id="pillar1" type="text" placeholder="Contoh: Hukum Kreator">
+      <label for="pillar1_topics">Topik contoh Pilar 1</label>
+      <input id="pillar1_topics" type="text" placeholder="Contoh: hak cipta, kontrak brand, privasi">
+      <label for="pillar2">Pilar 2</label>
+      <input id="pillar2" type="text" placeholder="Contoh: Etika & Mindset Digital">
+      <label for="pillar2_topics">Topik contoh Pilar 2</label>
+      <input id="pillar2_topics" type="text" placeholder="Contoh: plagiarisme, disclosure iklan, personal branding">
+      <label for="pillar3">Pilar 3</label>
+      <input id="pillar3" type="text" placeholder="Contoh: Praktik Konten">
+      <label for="pillar3_topics">Topik contoh Pilar 3</label>
+      <input id="pillar3_topics" type="text" placeholder="Contoh: script caption, CTA, struktur carousel, workflow">
+      <label for="pillar4">Pilar 4 (opsional)</label>
+      <input id="pillar4" type="text" placeholder="Opsional">
+      <label for="pillar5">Pilar 5 (opsional)</label>
+      <input id="pillar5" type="text" placeholder="Opsional">
+    </section>
+
+    <!-- 3. Empathize -->
+    <section>
+      <h2>3) Empathize (3 poin)</h2>
+      <p class="desc">Ringkas profil audiens, masalah, dan keinginan.</p>
+      <p class="desc"><b>Contoh:</b> Mahasiswa 18–22 (IG/TikTok) • Masalah: bingung bikin caption promosi • Keinginan: solusi cepat & praktis.</p>
+      <label for="who">Siapa (persona)</label>
+      <input id="who" type="text" placeholder="Contoh: Mahasiswa 18–22, IG & TikTok">
+      <label for="pain">Masalah utama</label>
+      <input id="pain" type="text" placeholder="Contoh: bingung membuat caption promosi">
+      <label for="gain">Keinginan</label>
+      <input id="gain" type="text" placeholder="Contoh: mau solusi cepat & praktis">
+    </section>
+
+    <!-- 4. Define -->
+    <section>
+      <h2>4) Problem Statement (Define)</h2>
+      <p class="desc">Format kalimat: “Audiens saya <b>membutuhkan</b> __________ <b>karena</b> __________.”</p>
+      <p class="desc"><b>Contoh:</b> Kreator pemula <b>butuh panduan hukum praktis</b> karena <b>takut salah saat kerja sama dengan brand</b>.</p>
+      <label for="problem">Tulis problem statement Anda</label>
+      <textarea id="problem" placeholder="Tulis di sini..."></textarea>
+    </section>
+
+    <!-- 5. Crazy 8's -->
+    <section>
+      <h2>5) Crazy 8’s — Delapan Ide (judul singkat)</h2>
+      <p class="desc">Tulis 8 judul ide. Fokus pada hook & nilai.</p>
+      <p class="desc"><b>Contoh:</b> Legal Checklist sebelum Terima Endorse (Reels 30 dtk)</p>
+      <label for="i1">1)</label><input id="i1" type="text" placeholder="Judul singkat ide 1">
+      <label for="i2">2)</label><input id="i2" type="text" placeholder="Judul singkat ide 2">
+      <label for="i3">3)</label><input id="i3" type="text" placeholder="Judul singkat ide 3">
+      <label for="i4">4)</label><input id="i4" type="text" placeholder="Judul singkat ide 4">
+      <label for="i5">5)</label><input id="i5" type="text" placeholder="Judul singkat ide 5">
+      <label for="i6">6)</label><input id="i6" type="text" placeholder="Judul singkat ide 6">
+      <label for="i7">7)</label><input id="i7" type="text" placeholder="Judul singkat ide 7">
+      <label for="i8">8)</label><input id="i8" type="text" placeholder="Judul singkat ide 8">
+    </section>
+
+    <!-- 6. Theme Decision -->
+    <section>
+      <h2>6) Theme Decision</h2>
+      <p class="desc">Rangkum keputusan tema untuk praktik sebagai content creator.</p>
+      <p class="desc"><b>Contoh lengkap:</b>
+        <br><i>Theme:</i> Legal & Etika Digital untuk Kreator Pemula
+        <br><i>Audiens:</i> kreator 18–28 di IG/TikTok
+        <br><i>Janji nilai:</i> Bikin konten & deal aman, tanpa drama hukum
+        <br><i>Pilar utama:</i> Hukum • Etika Digital • Praktik Konten
+        <br><i>Konten perdana:</i> Reels – Disclosure Ads dalam 15 Detik
+        <br><i>CTA:</i> Simpan & DM “TEMPLATE” untuk contoh
+      </p>
+      <label for="theme">Theme</label><input id="theme" type="text" placeholder="Contoh: Legal & Etika Digital untuk Kreator Pemula">
+      <label for="aud">Audiens</label><input id="aud" type="text" placeholder="Contoh: kreator 18–28 di IG/TikTok">
+      <label for="value">Janji nilai</label><input id="value" type="text" placeholder="Contoh: Bikin konten & deal aman, tanpa drama hukum">
+      <label for="mainpillars">Pilar utama</label><input id="mainpillars" type="text" placeholder="Contoh: Hukum • Etika Digital • Praktik Konten">
+      <label for="first">Konten perdana (format + judul)</label><input id="first" type="text" placeholder="Contoh: Reels – Disclosure Ads dalam 15 Detik">
+      <label for="cta">CTA</label><input id="cta" type="text" placeholder="Contoh: Simpan & DM ‘TEMPLATE’ untuk contoh">
+    </section>
+
+    <!-- PREVIEW (for printing) -->
+    <section class="preview" id="preview" style="display:none">
+      <div class="hd">
+        <div class="t">Ringkasan Isian</div>
+        <div class="muted" id="dateOut"></div>
+      </div>
+      <div class="bd">
+        <div class="kv">
+          <div class="k">Niche Statement</div><div id="nicheOut"></div>
+          <div class="k">Content Pillars</div><div id="pillarsOut"></div>
+          <div class="k">Empathize</div><div id="empathyOut"></div>
+          <div class="k">Problem Statement</div><div id="problemOut"></div>
+          <div class="k">Crazy 8’s</div><div id="ideasOut"></div>
+          <div class="k">Theme Decision</div><div id="themeOut"></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="toolbar">
+      <button class="btn secondary" id="saveBtn2">💾 Simpan (Local)</button>
+      <button class="btn" id="printBtn2">🖨️ Pratinjau & Cetak</button>
+    </div>
+  </div>
+
+<script>
+const $ = (id)=>document.getElementById(id);
+const fields = [
+  'niche','pillar1','pillar1_topics','pillar2','pillar2_topics','pillar3','pillar3_topics','pillar4','pillar5',
+  'who','pain','gain','problem',
+  'i1','i2','i3','i4','i5','i6','i7','i8',
+  'theme','aud','value','mainpillars','first','cta'
+];
+const KEY='dt-worksheet-interaktif-v2';
+function save(){ const o={}; fields.forEach(f=>o[f]=($(f)?.value||'')); localStorage.setItem(KEY, JSON.stringify(o)); }
+function load(){ const raw=localStorage.getItem(KEY); if(!raw) return; try{const o=JSON.parse(raw); fields.forEach(f=>{ if(o[f]!==undefined && $(f)) $(f).value=o[f]; });}catch(e){} }
+function clearAll(){ if(confirm('Bersihkan semua isian?')){ localStorage.removeItem(KEY); fields.forEach(f=>$(f)&&($(f).value='')); hidePreview(); }}
+
+function buildList(items){ const used=items.filter(Boolean); return used.length?('<ul class="list">'+used.map(x=>`<li>${x}</li>`).join('')+'</ul>'):'-'; }
+function formatPillar(name,topics){ if(!name && !topics) return ''; const t=topics?` (topik: ${topics})`:''; return `${name||'Pilar'}${t}`; }
+
+function showPreview(){
+  const d=new Date(); $('dateOut').textContent=d.toLocaleDateString('id-ID',{year:'numeric',month:'long',day:'numeric'});
+  $('nicheOut').textContent=$('niche').value||'-';
+  $('pillarsOut').innerHTML=buildList([
+    formatPillar($('pillar1').value,$('pillar1_topics').value),
+    formatPillar($('pillar2').value,$('pillar2_topics').value),
+    formatPillar($('pillar3').value,$('pillar3_topics').value),
+    $('pillar4').value?`Pilar 4: ${$('pillar4').value}`:'',
+    $('pillar5').value?`Pilar 5: ${$('pillar5').value}`:''
+  ]);
+  $('empathyOut').innerHTML=buildList([
+    $('who').value&&`Siapa: ${$('who').value}`,
+    $('pain').value&&`Masalah: ${$('pain').value}`,
+    $('gain').value&&`Keinginan: ${$('gain').value}`,
+  ]);
+  $('problemOut').textContent=$('problem').value||'-';
+  $('ideasOut').innerHTML=buildList([
+    $('i1').value,$('i2').value,$('i3').value,$('i4').value,$('i5').value,$('i6').value,$('i7').value,$('i8').value
+  ]);
+  $('themeOut').innerHTML=buildList([
+    $('theme').value&&`Theme: ${$('theme').value}`,
+    $('aud').value&&`Audiens: ${$('aud').value}`,
+    $('value').value&&`Janji nilai: ${$('value').value}`,
+    $('mainpillars').value&&`Pilar utama: ${$('mainpillars').value}`,
+    $('first').value&&`Konten perdana: ${$('first').value}`,
+    $('cta').value&&`CTA: ${$('cta').value}`,
+  ]);
+  $('preview').style.display='';
+  $('preview').scrollIntoView({behavior:'smooth'});
+}
+function hidePreview(){ $('preview').style.display='none'; }
+
+// Events
+['saveBtn','saveBtn2'].forEach(id=>$(id).addEventListener('click',save));
+['printBtn','printBtn2'].forEach(id=>$(id).addEventListener('click',()=>{ save(); showPreview(); setTimeout(()=>window.print(), 300); }));
+$('clearBtn').addEventListener('click',clearAll);
+fields.forEach(f=>$(f).addEventListener('input',save));
+
+// init
+load();
+</script>
+</body>
+</html>
